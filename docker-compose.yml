@@ -1,0 +1,53 @@
+version: '3.1'
+networks: 
+  integration:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.6.0.0/16
+#
+services:
+  influxdb:
+    build: influxdb
+    image: influxdb
+    container_name: influxdb
+    hostname: influxdb
+    networks: 
+      integration:
+        ipv4_address: 172.6.0.2
+    ports:
+      - 8086:8086
+    environment:
+      - PRE_CREATE_USER=test
+      - PRE_CREATE_PASS=test
+      - PRE_CREATE_DB=fnflux
+    volumes: 
+      - /var/lib/influxdb:/var/lib/influxdb
+    tty: true
+  chronograf:
+    build: chronograf
+    image: chronograf
+    container_name: chronograf
+    hostname: chronograf
+    networks: 
+      integration:
+        ipv4_address: 172.6.0.3
+    ports: 
+      - 8888:8888
+    depends_on: 
+      - influxdb
+    tty: true
+  endpoint:
+    build: endpoint
+    image: endpoint
+    container_name: endpoint
+    hostname: endpoint
+    networks: 
+      integration:
+        ipv4_address: 172.6.0.4
+    ports:
+      - 5000:5000
+    volumes:
+      - ./endpoint/:/tmp
+    depends_on:
+      - influxdb
