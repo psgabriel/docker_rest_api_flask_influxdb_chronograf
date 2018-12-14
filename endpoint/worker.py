@@ -9,7 +9,7 @@ host = 'influxdb'
 port = 8086
 user = 'test'
 password = 'test'
-db_name = 'flask'
+db_name = 'influx'
 
 influx = InfluxDBClient(host, port, user, password)
 

@@ -20,7 +20,7 @@ services:
     environment:
       - PRE_CREATE_USER=test
       - PRE_CREATE_PASS=test
-      - PRE_CREATE_DB=fnflux
+      - PRE_CREATE_DB=influx
     volumes: 
       - /var/lib/influxdb:/var/lib/influxdb
     tty: true

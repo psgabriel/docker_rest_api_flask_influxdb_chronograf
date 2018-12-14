@@ -1,6 +1,6 @@
 {
   "id": "10000",
-  "name": "Influx",
+  "name": "influx",
   "username": "test",
   "password": "test",
   "url": "http://influxdb:8086",
