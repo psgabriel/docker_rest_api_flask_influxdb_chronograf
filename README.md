@@ -30,6 +30,7 @@ HTTP Access: http://IP:5000/postjson
 No auth is requiered
 
 Sample data that can be posted:
+```
 {
     "measurement": "cpu_load_short",
     "time": "2009-11-11T23:00:00Z",
@@ -41,3 +42,4 @@ Sample data that can be posted:
             "value": 0.65
         }
 }
+```
