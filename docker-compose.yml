@@ -18,9 +18,12 @@ services:
     ports:
       - 8086:8086
     environment:
-      - PRE_CREATE_USER=test
-      - PRE_CREATE_PASS=test
+      - PRE_CREATE_USER=influx
+      - PRE_CREATE_PASS=influx
       - PRE_CREATE_DB=influx
+      - REST_USER=rest
+      - REST_PASS=rest
+      - REST_DBNAME=rest
     volumes: 
       - /var/lib/influxdb:/var/lib/influxdb
     tty: true
@@ -34,6 +37,8 @@ services:
         ipv4_address: 172.6.0.3
     ports: 
       - 8888:8888
+    environment: 
+      - RESOURCES_PATH="/usr/share/chronograf/resources/influx_db.src"
     depends_on: 
       - influxdb
     tty: true
@@ -47,6 +52,12 @@ services:
         ipv4_address: 172.6.0.4
     ports:
       - 5000:5000
+    environment: 
+      - INFLUXDB_HOST=influxdb
+      - INFLUXDB_PORT=8086
+      - INFLUXDB_USER=rest
+      - INFLUXDB_PASS=rest
+      - INFLUXDB_DBNAME=rest
     volumes:
       - ./endpoint/:/tmp
     depends_on:

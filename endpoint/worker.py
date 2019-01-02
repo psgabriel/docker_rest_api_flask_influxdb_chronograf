@@ -7,9 +7,9 @@ import json
 # Influxdb Connection
 host = 'influxdb'
 port = 8086
-user = 'test'
-password = 'test'
-db_name = 'influx'
+user = 'rest'
+password = 'rest'
+db_name = 'rest'
 
 influx = InfluxDBClient(host, port, user, password)
 
