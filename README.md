@@ -25,10 +25,12 @@ May be necessary to specify Influxdb connection, so use these informations:
 
 ! Skip Kapacitor Connection Setup 
 
-REST API:
-HTTP Access: http://IP:5000/postjson
+## REST API:
+HTTP Access:
+````
+http://IP:5000/postjson
 No auth is requiered
-
+```
 Sample data that can be posted:
 ```
 {
