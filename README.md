@@ -1,4 +1,4 @@
-Package with Influxdb, Chronograf and Phyton Flask
+# Package with Influxdb, Chronograf and Phyton Flask
 
 This set is simple to run and can help to build a simple HTTP endpoint to post json documents.
 All data will be storage on a Influxdb environment with UI Chronograf.
@@ -9,16 +9,19 @@ All data will be storage on a Influxdb environment with UI Chronograf.
 0.0.0.0:5000/tcp   endpoint
 0.0.0.0:8086/tcp   influxdb
 ````
-CHRONOGRAF:
+
+## Chronograf:
 HTTP Access: http://IP:8888/
 
 May be necessary to specify Influxdb connection, so use these informations:
+```
     Connection URL: http://influxdb:8086
     Connection Name: Influx
     Username: test
     Passwdord: test
     Telegraf Database Name: telegraf
     Default Retention Policy: empty
+```
 
 ! Skip Kapacitor Connection Setup 
 
